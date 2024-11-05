@@ -109,7 +109,7 @@ insert into veeNaidud (email, korterinumber, kuupaev, külmVesi, soeVesi, makstu
 insert into veeNaidud (email, korterinumber, kuupaev, külmVesi, soeVesi, makstud) values ('amccane2r@thetimes.co.uk', '135', '2024-07-03', 6450, 46649, 1);
 
 select 
-email,
+email as '@email',
 korterinumber,
 kuupaev,
 kulmVesi as 'vesi/kulmVesi',
