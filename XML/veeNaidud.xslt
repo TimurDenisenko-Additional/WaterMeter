@@ -7,6 +7,17 @@
                     <title>Vee näidud</title>
                 </head>
                 <body>
+                    <form method="get" action="">
+                        <label for="email">Otsi emaili teel:</label>
+                        <input type="text" id="email" name="email" placeholder="Kirjuta email" />
+                        <label for="aadress">Otsi aadressi teel:</label>
+                        <input type="text" id="aadress" name="aadress" placeholder="Kirjuta aadress" />
+                        <label for="korterinumber">Otsi korterinumberi teel:</label>
+                        <input type="number" id="korterinumber" name="korterinumber" placeholder="Kirjuta korterinumber" />
+                        <label for="kuupaev">Otsi kuupäevi teel:</label>
+                        <input type="date" id="kuupaev" name="kuupaev" placeholder="Kirjuta kuupäev" />
+                        <input type="submit" value="Otsi" />
+                    </form>
                     <table>
                         <thead>
                             <tr>
