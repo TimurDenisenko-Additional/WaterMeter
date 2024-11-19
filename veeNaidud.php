@@ -9,6 +9,8 @@ $proc = new XSLTProcessor;
 $proc->importStyleSheet($xslt);
 
 $findBy = null;
+$find = null;
+
 if (isset($_GET['email']) && !empty($_GET['email'])){
     $findBy = "@email";
     $find = trim($_GET['email']);
@@ -28,7 +30,7 @@ else if (isset($_GET['kuupaev']) && !empty($_GET['kuupaev'])){
 if ($findBy !== null){
     $xpath = new DOMXPath($xml);
     $xpath->registerNamespace('xsl', 'http://www.w3.org/1999/XSL/Transform');
-    $query = "//veeNaidud/veeNaide[$findBy='$find']";
+    $query = "//veeNaidud/veeNaide[$findBy = '$find']";
     $filteredXML = $xpath->query($query);
     $filteredDocument = new DOMDocument;
     $xml = $filteredDocument->createElement("veeNaidud");

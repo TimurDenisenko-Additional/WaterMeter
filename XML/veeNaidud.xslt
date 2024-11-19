@@ -7,17 +7,34 @@
                     <title>Vee näidud</title>
                 </head>
                 <body>
-                    <form method="get" action="">
-                        <label for="email">Otsi emaili teel:</label>
-                        <input type="text" id="email" name="email" placeholder="Kirjuta email" />
-                        <label for="aadress">Otsi aadressi teel:</label>
-                        <input type="text" id="aadress" name="aadress" placeholder="Kirjuta aadress" />
-                        <label for="korterinumber">Otsi korterinumberi teel:</label>
-                        <input type="number" id="korterinumber" name="korterinumber" placeholder="Kirjuta korterinumber" />
-                        <label for="kuupaev">Otsi kuupäevi teel:</label>
-                        <input type="date" id="kuupaev" name="kuupaev" placeholder="Kirjuta kuupäev" />
-                        <input type="submit" value="Otsi" />
-                    </form>
+                    <div class="search-wrapper">
+                        <h2 class="search-title">Otsida</h2>
+                        <form method="get" id="search-form">
+                            <div class="button-container">
+                                <button type="button" class="toggle-input" data-target="email">E-posti järgi</button>
+                                <button type="button" class="toggle-input" data-target="aadress">Aadressi järgi</button>
+                                <button type="button" class="toggle-input" data-target="korterinumber">Korterinumbri järgi</button>
+                                <button type="button" class="toggle-input" data-target="kuupaev">Kuupäeva järgi</button>
+                            </div>
+                            <div class="input-container" id="email-container">
+                                <label for="email">Sisesta e-post:</label>
+                                <input type="text" id="email" name="email" placeholder="Näiteks: kasutaja@example.com" />
+                            </div>
+                            <div class="input-container" id="aadress-container">
+                                <label for="aadress">Sisesta aadress:</label>
+                                <input type="text" id="aadress" name="aadress" placeholder="Näiteks: Tallinn, Vabaduse väljak 1" />
+                            </div>
+                            <div class="input-container" id="korterinumber-container">
+                                <label for="korterinumber">Sisesta korterinumber:</label>
+                                <input type="number" id="korterinumber" name="korterinumber" placeholder="Näiteks: 123" />
+                            </div>
+                            <div class="input-container" id="kuupaev-container">
+                                <label for="kuupaev">Sisesta kuupäev:</label>
+                                <input type="date" id="kuupaev" name="kuupaev" />
+                            </div>
+                            <div id="submit-button-container"></div>
+                        </form>
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -67,6 +84,7 @@
                         </xsl:for-each>
                         </tbody>
                     </table>
+                    <script src="script.js"></script>
                 </body>
                 <footer>
                     Timur Denisenko 2024
