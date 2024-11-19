@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="input-container" id="makstud-container">
                                     <label for="makstud">Kas makstud:</label>
-                                    <input type="text" id="makstud" name="makstud" placeholder="Näiteks: jah, trUE, 1, Ei, 0, false"/>
+                                    <input type="text" id="makstud" name="makstud" placeholder="Näiteks: jah, trUE, 1, Ei, false"/>
                                 </div>
                             <div id="submit-button-container"></div>
                             </form>
@@ -66,12 +66,13 @@
                             <form method="post" id="import-form" enctype="multipart/form-data">
                                 <div id="importFile-container">
                                     <label for="importFile">Vali fail:</label>
-                                    <input type="file" id="importFile" name="importFile" />
+                                    <input type="file" id="importFile" name="importFile" accept="application/json"/>
+                                    <input type="submit" id="importFileSubmit" name="importFileSubmit" value="Lae üle" />
                                 </div>
                                 <div id="import-button-container"></div>
                             </form>
                         </div>
-                        </div>
+                    </div>
 
                     <div class="div-wrapper">
                         <div class="toggle-block"> 
@@ -81,7 +82,7 @@
                             <form method="get" id="export-form">
                                 <div id="exportFile-container">
                                     <label for="exportFile">Lae alla andmed:</label>
-                                    <input type="button" id="exportFile" name="exportFile" value="Lae alla" />
+                                    <input type="submit" id="exportFile" name="exportFile" value="Lae alla" />
                                 </div>
                                 <div id="export-button-container"></div>
                             </form>
