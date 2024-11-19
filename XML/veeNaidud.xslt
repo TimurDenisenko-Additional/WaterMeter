@@ -43,15 +43,15 @@
                                 </div>
                                 <div class="input-container" id="kulmVesi-container">
                                     <label for="kulmVesi">Sisesta külm vesi:</label>
-                                    <input type="number" id="kulmVesi" name="kulmVesi" />
+                                    <input type="number" id="kulmVesi" name="kulmVesi" placeholder="Näiteks: 123"/>
                                 </div>
                                 <div class="input-container" id="soeVesi-container">
                                     <label for="soeVesi">Sisesta soe vesi:</label>
-                                    <input type="number" id="soeVesi" name="soeVesi" />
+                                    <input type="number" id="soeVesi" name="soeVesi" placeholder="Näiteks: 123"/>
                                 </div>
                                 <div class="input-container" id="makstud-container">
                                     <label for="makstud">Kas makstud:</label>
-                                    <input type="text" id="makstud" name="makstud"/>
+                                    <input type="text" id="makstud" name="makstud" placeholder="Näiteks: jah, trUE, 1, Ei, 0, false"/>
                                 </div>
                             <div id="submit-button-container"></div>
                             </form>
