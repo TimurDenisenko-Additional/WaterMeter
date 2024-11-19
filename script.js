@@ -4,6 +4,18 @@ const submitContainer = document.getElementById("submit-button-container");
 
 let currentInput = null;
 
+document.querySelectorAll(".toggle-block").forEach(block => {
+    block.addEventListener("click", () => {
+        if (block.parentElement.querySelector(".wrapper").classList.contains("active")) {
+            block.parentElement.querySelector(".wrapper").classList.remove("active");
+        } else {
+            block.parentElement.querySelector(".wrapper").classList.add("active");
+        }
+    });
+});
+
+
+
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         const targetId = button.getAttribute("data-target") + "-container";
@@ -12,15 +24,11 @@ buttons.forEach(button => {
         inputContainers.forEach(container => {
             if (container !== targetContainer) {
                 container.classList.remove("active");
-                container.style.maxHeight = "0";
-                container.style.opacity = "0";
             }
         });
 
         if (targetContainer.classList.contains("active")) {
             targetContainer.classList.remove("active");
-            targetContainer.style.maxHeight = "0";
-            targetContainer.style.opacity = "0";
             submitContainer.innerHTML = "";
             currentInput = null;
         } else {
