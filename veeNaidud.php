@@ -27,10 +27,56 @@ else if (isset($_GET['kuupaev']) && !empty($_GET['kuupaev'])){
     $findBy = "kuupaev";
     $find = $_GET['kuupaev'];
 }
-if ($findBy !== null){
+else if (isset($_GET['kulmVesi']) && !empty($_GET['kulmVesi'])){
+    $findBy = "vesi/kulmVesi";
+    $find = $_GET['kulmVesi'];
+}
+else if (isset($_GET['soeVesi']) && !empty($_GET['soeVesi'])){
+    $findBy = "vesi/soeVesi";
+    $find = $_GET['soeVesi'];
+}
+else if (isset($_GET['makstud']) && !empty($_GET['makstud'])){
+    $findBy = "makstud";
+    $find = strtolower($_GET['makstud']);
+    if ($find === "jah" || $find === "1" || $find === "true"){
+        $find = "1";
+    }
+    else if($find === "ei" || $find === "0" || $find === "false"){
+        $find = "0";
+    }
+    else{
+        $findBy = null;
+        $find = null;
+    }
+}
+if ($findBy === "kuupaev"){
+    $root = $xml->documentElement;
+    $filteredDocument = new DOMDocument('1.0', 'UTF-8');
+    $filteredDocument->formatOutput = true;
+    $newRoot = $filteredDocument->createElement('veeNaidud');
+    $filteredDocument->appendChild($newRoot);
+    $veeNaideList = $root->getElementsByTagName('veeNaide');
+    foreach ($veeNaideList as $veeNaide) {
+        $kuupaev = $veeNaide->getElementsByTagName('kuupaev')->item(0);
+        if ($kuupaev) {
+            $dateValue = $kuupaev->nodeValue;
+            if ($dateValue >= $find) {
+                $importedNode = $filteredDocument->importNode($veeNaide, true);
+                $newRoot->appendChild($importedNode);
+            }
+        }
+    }
+    $xml = $filteredDocument;
+}
+else if ($findBy !== null){
     $xpath = new DOMXPath($xml);
     $xpath->registerNamespace('xsl', 'http://www.w3.org/1999/XSL/Transform');
-    $query = "//veeNaidud/veeNaide[$findBy = '$find']";
+    if ($findBy === "vesi/kulmVesi" || $findBy === "vesi/soeVesi"){
+        $query = "//veeNaidud/veeNaide[$findBy >= '$find']";
+    }
+    else{
+        $query = "//veeNaidud/veeNaide[$findBy = '$find']";
+    }
     $filteredXML = $xpath->query($query);
     $filteredDocument = new DOMDocument;
     $xml = $filteredDocument->createElement("veeNaidud");
@@ -40,4 +86,3 @@ if ($findBy !== null){
     $xml = $filteredDocument->appendChild($xml);
 }
 echo $proc->transformToXml($xml);
- ?>

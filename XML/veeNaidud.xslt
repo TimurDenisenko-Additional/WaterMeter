@@ -15,6 +15,9 @@
                                 <button type="button" class="toggle-input" data-target="aadress">Aadressi järgi</button>
                                 <button type="button" class="toggle-input" data-target="korterinumber">Korterinumbri järgi</button>
                                 <button type="button" class="toggle-input" data-target="kuupaev">Kuupäeva järgi</button>
+                                <button type="button" class="toggle-input" data-target="kulmVesi">Külma vesi järgi</button>
+                                <button type="button" class="toggle-input" data-target="soeVesi">Soja vesi järgi</button>
+                                <button type="button" class="toggle-input" data-target="makstud">Makstud järgi</button>
                             </div>
                             <div class="input-container" id="email-container">
                                 <label for="email">Sisesta e-post:</label>
@@ -31,6 +34,18 @@
                             <div class="input-container" id="kuupaev-container">
                                 <label for="kuupaev">Sisesta kuupäev:</label>
                                 <input type="date" id="kuupaev" name="kuupaev" />
+                            </div>
+                            <div class="input-container" id="kulmVesi-container">
+                                <label for="kulmVesi">Sisesta külm vesi:</label>
+                                <input type="number" id="kulmVesi" name="kulmVesi" />
+                            </div>
+                            <div class="input-container" id="soeVesi-container">
+                                <label for="soeVesi">Sisesta soe vesi:</label>
+                                <input type="number" id="soeVesi" name="soeVesi" />
+                            </div>
+                            <div class="input-container" id="makstud-container">
+                                <label for="makstud">Kas makstud:</label>
+                                <input type="text" id="makstud" name="makstud"/>
                             </div>
                             <div id="submit-button-container"></div>
                         </form>
